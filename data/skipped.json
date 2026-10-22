@@ -1,0 +1,20 @@
+[
+  {
+    "source": "Anthropic News",
+    "title": "Physicist Christopher Stubbs joins Anthropic's Long-Term Benefit Trust",
+    "link": "https://www.anthropic.com/news/christopher-stubbs-joins-long-term-benefit-trust",
+    "reason": "This is a personnel announcement (a board or trust appointment), which falls under the skip category."
+  },
+  {
+    "source": "Anthropic News",
+    "title": "Investing in the public benefit",
+    "link": "https://www.anthropic.com/news/public-benefit-fund",
+    "reason": "This is a funding or investment announcement about share commitments to a fund, which falls under the skip category rather than AI capabilities, use, or policy."
+  },
+  {
+    "source": "Claude Blog",
+    "title": "HCLTech joins the Claude Partner Network as a Global Premier partner",
+    "link": "https://claude.com/resources/articles/hcltech-joins-claude-partner-network",
+    "reason": "This is a partner announcement about a services firm joining a network, which falls under the partner/sales category to skip."
+  }
+]
