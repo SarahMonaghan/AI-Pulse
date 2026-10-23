@@ -1,0 +1,104 @@
+[
+  {
+    "source": "arXiv: Computers and Society (cs.CY)",
+    "section": "Research and policy teams",
+    "title": "Policy Central: Detecting Conflicts, Redundancy, and Similarity in Deployed Police Policy",
+    "link": "https://arxiv.org/abs/2610.29338",
+    "date": "2026-10-22T04:00:00+00:00",
+    "summary": "arXiv:2610.29338v1 Announce Type: cross \nAbstract: Policy Central is a deployed system that helps police departments find relationships between sections of their written policy: whether two sections conflict, are redundant, are merely similar, or are different. We describe the system and compare two architectures. Retrieve-Judge, a retrieve-then-classify pipeline, runs as a cheap library-wide health signal; Screen-Confirm, a screen-then-confirm cascade, is a selective audit of the documents a reviewer chooses, checking them exhaustively against one another. On a 302-pair benchmark drawn from one department's ~84 real policy documents, given each pair Screen-Confirm reaches 0.795 aggregate recall and 0.885 on Conflict, so current models judge well. Finding the pair is the hard part: Retrieve-Judge's composed recall falls to 0.457, and Screen-Confirm recovers 0.472 (0.615 on Conflict). Today these pairs are found by reading the whole library, nearly 20,000 sections, checked against one a",
+    "keep_reason": "This describes a deployed AI system for analyzing police policy documents, which fits capabilities, real-world use by organizations, and policy effects.",
+    "plain_summary": "Policy Central is a tool already in use that helps police departments spot when sections of their written policies contradict each other, repeat each other, or are just similar. The researchers tested two designs on real policy documents and found AI judges a pair of sections well, but finding which pairs to compare is much harder.",
+    "why_it_matters": "It shows AI can help clean up large policy libraries, but the real bottleneck is finding the problem pairs, so reviewers still shouldn't assume the tool catches every conflict.",
+    "level": "workflow",
+    "field": "criminal_justice",
+    "analogy": "It's like a proofreader who is very good at saying whether two paragraphs contradict each other once handed them, but struggles to figure out which two paragraphs out of 20,000 to pull from the pile.",
+    "technical_terms": [
+      "Retrieve-Judge",
+      "Screen-Confirm",
+      "retrieve-then-classify pipeline",
+      "cascade",
+      "benchmark",
+      "recall"
+    ],
+    "scores": {
+      "process": 4,
+      "relevance": 5,
+      "complexity": 3,
+      "total": 12
+    },
+    "pick_reason": "It describes a deployed AI workflow for finding contradictions and overlaps in police policies, directly relevant to criminal justice policy work, with useful findings on which steps AI does well and poorly.",
+    "diagram": "flowchart TD\n    A[\"Reviewer picks policy documents\"]\n    B[\"Split into policy sections\"]\n    C[\"Find likely related pairs\"]\n    D[\"AI judges each pair\"]\n    E{\"Conflict, redundant, or similar?\"}\n    F[\"Flag pair for review\"]\n    G[\"Mark as different\"]\n    H{\"Pair seems worth confirming?\"}\n    I[\"AI confirms with closer read\"]\n    J[\"Reviewer reads flagged pairs\"]\n    K[\"Reviewer revises policy\"]\n    A --> B\n    B --> C\n    C --> D\n    D --> E\n    E -->|\"Yes\"| H\n    E -->|\"No\"| G\n    H -->|\"Yes\"| I\n    H -->|\"No\"| F\n    I --> F\n    F --> J\n    J --> K\n    classDef person fill:#F3F4F6,stroke:#6B7280,color:#111827\n    classDef ai fill:#EEF2FF,stroke:#6366F1,color:#111827\n    classDef tool fill:#ECFDF5,stroke:#10B981,color:#111827\n    class A,J,K person\n    class D,E,H,I ai\n    class B,C,F,G tool",
+    "before": "Staff had to read an entire policy library, nearly 20,000 sections, and mentally check each section against the others to catch contradictions or repeated rules. In practice this is so slow that many conflicts likely went unnoticed.",
+    "after": "Policy Central breaks policies into sections, uses a search step to pick likely related pairs, and has an AI label each pair as conflicting, redundant, similar, or different. One design runs cheaply across the whole library, while another does a deeper, exhaustive check on documents a reviewer chooses.",
+    "guide_takeaway": "When the AI judges well but the hard part is deciding which items to look at, a fixed workflow with a search step and a confirmation step helps, but the weak link (finding the right pairs) needs the most design attention, not just a better prompt."
+  },
+  {
+    "source": "arXiv: Computers and Society (cs.CY)",
+    "section": "Research and policy teams",
+    "title": "RubRIX: Rubric-Driven Risk Mitigation in Caregiver-AI Interactions",
+    "link": "https://arxiv.org/abs/2601.13235",
+    "date": "2026-10-22T04:00:00+00:00",
+    "summary": "arXiv:2601.13235v2 Announce Type: replace-cross \nAbstract: Caregivers seeking AI-mediated support express complex needs---information-seeking, emotional validation, and distress cues---that warrant careful evaluation of response safety and appropriateness. Existing AI evaluation frameworks, primarily focused on general risks (toxicity, hallucinations, policy violations, etc), may not adequately capture the nuanced risks of LLM-responses in caregiving-contexts. We introduce RubRIX (Rubric-based Risk Index), a theory-driven, clinician-validated framework for evaluating risks in LLM caregiving responses. Grounded in the Elements of an Ethic of Care, RubRIX operationalizes five empirically-derived risk dimensions: Inattention, Bias & Stigma, Information Inaccuracy, Uncritical Affirmation, and Epistemic Arrogance. We evaluate six state-of-the-art LLMs on over 20,000 caregiver queries from Reddit and ALZConnected. Rubric-guided refinement consistently reduced risk-components by 45-98% after ",
+    "keep_reason": "This research paper on evaluating AI chatbot safety and risks in caregiving conversations is directly about AI and its societal effects, fitting the digest's scope.",
+    "plain_summary": "Researchers created RubRIX, a scoring checklist (a rubric) built with clinicians to spot risks in AI answers to caregivers, such as ignoring their distress, showing bias, giving wrong information, agreeing uncritically, or sounding overly certain. They tested six leading AI models on over 20,000 real caregiver questions and found that using the rubric to guide revisions cut the risk components by 45-98%.",
+    "why_it_matters": "It shows how to build a field-specific, expert-validated checklist to evaluate and improve AI answers in sensitive human-service settings where generic safety tests miss important harms.",
+    "level": "workflow",
+    "field": "research",
+    "analogy": "It's like a clinical supervisor's review form: instead of just asking whether a counselor's reply was polite, it checks specific things like whether they listened, stayed accurate, and avoided talking down, then the counselor revises the reply based on that feedback.",
+    "technical_terms": [
+      "LLM",
+      "rubric",
+      "framework",
+      "hallucinations",
+      "toxicity",
+      "state-of-the-art",
+      "Rubric-guided refinement"
+    ],
+    "scores": {
+      "process": 4,
+      "relevance": 4,
+      "complexity": 4,
+      "total": 12
+    },
+    "pick_reason": "It shows a rubric-based loop of scoring AI answers for risks and then revising them, a reusable pattern for checking AI in sensitive human-services settings, with clear quantified results.",
+    "diagram": "flowchart TD\n A[\"Caregiver question collected\"]\n B[\"AI drafts an answer\"]\n C[\"AI scores against rubric\"]\n D{\"Any risks flagged?\"}\n E[\"AI gets rubric feedback\"]\n F[\"AI rewrites the answer\"]\n G[\"Final answer kept\"]\n H[\"Clinicians validate rubric\"]\n I[\"Team compares risk scores\"]\n A --> B\n B --> C\n H --> C\n C --> D\n D -->|\"Yes\"| E\n E --> F\n F --> C\n D -->|\"No\"| G\n G --> I\n classDef person fill:#F3F4F6,stroke:#6B7280,color:#111827\n classDef ai fill:#EEF2FF,stroke:#6366F1,color:#111827\n classDef tool fill:#ECFDF5,stroke:#10B981,color:#111827\n class A,H,I person\n class B,C,E,F ai\n class D,G tool",
+    "before": "AI answers to caregivers were usually checked with general safety tests for things like toxicity or made-up facts, or reviewed by hand. Those checks can miss subtler problems, such as ignoring a caregiver's distress or sounding overly certain.",
+    "after": "A clinician-validated rubric scores each AI answer on five caregiving-specific risks, and the AI uses that feedback to revise its draft. Tested on over 20,000 real caregiver questions across six leading models, this cut risk components by 45-98%.",
+    "guide_takeaway": "When quality depends on a clear, repeatable standard, a workflow that drafts, scores against a rubric, and revises beats a single prompt, and it doesn't need a fully independent agent."
+  },
+  {
+    "source": "arXiv: Computers and Society (cs.CY)",
+    "section": "Research and policy teams",
+    "title": "Model Capacity Frontier: A Development Framework for LLM-Supported Social Simulation",
+    "link": "https://arxiv.org/abs/2610.24168",
+    "date": "2026-10-22T04:00:00+00:00",
+    "summary": "arXiv:2610.24168v2 Announce Type: replace-cross \nAbstract: Large language model (LLM) agents are increasingly incorporated into agent-based models (ABMs) on the premise that richer, context-sensitive human behavior can improve empirical fidelity. However, LLM-supported ABMs introduce an open-ended design space in which subtle modeling and configuration choices, such as prompt design and environment coupling, can substantially alter outcomes. Developing LLM-supported ABMs to simulate human collective behavior therefore requires navigating configuration sensitivity while identifying the limitations of the current model architecture. In this paper, we introduce the Model Capacity Frontier (MCF), a framework that characterizes the empirical performance attainable by a specified architecture across its admissible configurations. In multi-objective settings, this capacity is represented by an estimated Pareto frontier obtained through systematic configuration exploration. We demonstrate MCF ",
+    "keep_reason": "This paper covers how LLM agents are used in social simulation research, which is a direct AI capability and research-methods item relevant to the digest.",
+    "plain_summary": "Researchers are using AI chatbots-like agents to play the role of people in computer simulations of group behavior, but small choices like how the AI is prompted can change the results a lot. This paper proposes the Model Capacity Frontier, a method that systematically tests many setups to find the best performance a given simulation design can realistically reach.",
+    "why_it_matters": "It gives policy and social science researchers a more disciplined way to judge whether an AI-powered simulation of human behavior is trustworthy or just reflects arbitrary setup choices.",
+    "level": "agent",
+    "field": "research",
+    "analogy": "It's like testing a recipe by trying many combinations of oven temperature and baking time, then marking the best result the recipe can ever produce, so you know when to fix the recipe instead of fiddling with the oven.",
+    "technical_terms": [
+      "Large language model (LLM)",
+      "LLM agents",
+      "agent-based models (ABMs)",
+      "prompt design",
+      "environment coupling",
+      "Model Capacity Frontier (MCF)",
+      "Pareto frontier",
+      "configuration"
+    ],
+    "scores": {
+      "process": 3,
+      "relevance": 4,
+      "complexity": 4,
+      "total": 11
+    },
+    "pick_reason": "It proposes a systematic method for testing many AI-agent setups in social simulations, which is relevant to social science researchers, but the process is abstract and methodologically complex.",
+    "diagram": "flowchart TD\n    A[\"Define simulation design\"]\n    B[\"Choose settings to vary\"]\n    C[\"Generate many configurations\"]\n    D[\"AI agents run simulation\"]\n    E[\"Score against real data\"]\n    F{\"Enough settings tested?\"}\n    G[\"Map best trade-offs\"]\n    H[\"Compare design to frontier\"]\n    I{\"Good enough fit?\"}\n    J[\"Redesign model architecture\"]\n    K[\"Report capacity limits\"]\n    A --> B\n    B --> C\n    C --> D\n    D --> E\n    E --> F\n    F -->|\"No\"| C\n    F -->|\"Yes\"| G\n    G --> H\n    H --> I\n    I -->|\"No\"| J\n    J --> A\n    I -->|\"Yes\"| K\n    classDef person fill:#F3F4F6,stroke:#6B7280,color:#111827\n    classDef ai fill:#EEF2FF,stroke:#6366F1,color:#111827\n    classDef tool fill:#ECFDF5,stroke:#10B981,color:#111827\n    class A,B,H,I,J,K person\n    class D ai\n    class C,E,F,G tool",
+    "before": "Researchers building simulations with AI agents usually tried a handful of prompts and settings by hand, then reported whichever version looked most realistic. Because small choices like wording can change results a lot, it was hard to tell whether a weak result meant a bad setup or a real limit of the approach.",
+    "after": "The Model Capacity Frontier method systematically tries many combinations of settings, scores each against real-world data, and maps the best results it can reach (the trade-off curve, or Pareto frontier, when there are several goals). This shows how good a given simulation design can realistically get, so researchers can tell a poor setup from a design that has hit its ceiling.",
+    "guide_takeaway": "When results hinge on many small setup choices, a single prompt is too fragile, so a repeatable workflow that tests settings systematically and checks them against real data is the better way to judge what the AI can actually do."
+  }
+]

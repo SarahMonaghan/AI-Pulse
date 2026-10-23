@@ -187,6 +187,8 @@
   },
   "active": "ae44a11e1de9acda",
   "lastOpenFiles": [
+    "data/featured.json",
+    "feature.py",
     "inbox/2026-10-22-digest.md",
     "inbox",
     "write_digest.py",
